@@ -1,0 +1,47 @@
+# ============================================================
+# terraform.tfvars.example
+# ============================================================
+# Copy this file to terraform.tfvars and fill in your values.
+#
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# NEVER commit terraform.tfvars to Git — it contains secrets!
+# Add it to .gitignore.
+# ============================================================
+
+# AWS region — af-south-1 is Cape Town (closest to Nigeria)
+aws_region = "af-south-1"
+
+# Name of an existing EC2 Key Pair in your AWS account (optional)
+# Leave empty ("") to use password-only access
+key_pair_name = ""
+
+# Your current public IP in CIDR notation.
+# Find it by visiting https://checkip.amazonaws.com
+# Example: if your IP is 105.112.45.67, enter "105.112.45.67/32"
+my_ip_address = "YOUR_IP_HERE/32"
+
+# Name of the S3 bucket to store Terraform state.
+# Must be globally unique across all of AWS.
+# Example: "techcorp-terraform-state-20240101"
+s3_bucket_name = "techcorp-terraform-state-YOURNAME"
+
+# Password for ec2-user on the web servers
+# Used when SSH-ing from Bastion to web servers
+web_server_password = "ChangeMe!WebServer123"
+
+# Password for ec2-user on the DB server
+# Used when SSH-ing from Bastion to the DB server
+db_server_password = "ChangeMe!DBServer123"
+
+# Password for the PostgreSQL superuser account
+postgres_password = "ChangeMe!Postgres123"
+
+# Instance types (defaults are already set in variables.tf)
+bastion_instance_type = "t3.micro"
+web_instance_type     = "t3.micro"
+db_instance_type      = "t3.small"
+
+# Environment tag
+environment = "production"
+project_name = "techcorp"
